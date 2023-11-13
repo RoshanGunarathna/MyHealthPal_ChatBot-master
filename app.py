@@ -1,13 +1,11 @@
-from email import message
-from urllib import response
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 
 from chat import get_response
-app = Flask(__name__,template_folder='web')
+app = Flask(__name__)
 
-@app.get("/")
-def index_get():
-   return render_template("base.html")
+@app.get('/')
+def hello_world():
+    return 'Hello!'
 
 @app.post("/predict")
 def pred():
